@@ -27,8 +27,9 @@ function Menu() {
                 name="Digitus"
                 component={HomeRouter}
                 options={{
+                    tabBarActiveBackgroundColor: '#048345',
                     tabBarIcon: ({ focused, color }) => {
-                        focused ? (color = 'green') : (color = '#348AA7');
+                        focused ? (color = '#fff') : (color = '#348AA7');
                         return (
                             <MaterialCommunityIcons
                                 name="home"
@@ -43,8 +44,9 @@ function Menu() {
                 name="Search"
                 component={Screen}
                 options={{
+                    tabBarActiveBackgroundColor: '#048345',
                     tabBarIcon: ({ focused, color }) => {
-                        focused ? (color = 'green') : (color = '#348AA7');
+                        focused ? (color = '#fff') : (color = '#348AA7');
                         return (
                             <MaterialCommunityIcons
                                 name="book-open-page-variant"
@@ -59,8 +61,9 @@ function Menu() {
                 name="Today"
                 component={Screen}
                 options={{
+                    tabBarActiveBackgroundColor: '#048345',
                     tabBarIcon: ({ focused, color }) => {
-                        focused ? (color = 'green') : (color = '#348AA7');
+                        focused ? (color = '#fff') : (color = '#348AA7');
                         return (
                             <MaterialCommunityIcons
                                 name="account-group"
@@ -75,8 +78,9 @@ function Menu() {
                 name="Login"
                 component={Screen}
                 options={{
+                    tabBarActiveBackgroundColor: '#048345',
                     tabBarIcon: ({ focused, color }) => {
-                        focused ? (color = 'green') : (color = '#348AA7');
+                        focused ? (color = '#fff') : (color = '#348AA7');
                         return (
                             <MaterialCommunityIcons
                                 name="bell"
@@ -91,8 +95,9 @@ function Menu() {
                 name="Other"
                 component={Screen}
                 options={{
+                    tabBarActiveBackgroundColor: '#048345',
                     tabBarIcon: ({ focused, color }) => {
-                        focused ? (color = 'green') : (color = '#348AA7');
+                        focused ? (color = '#fff') : (color = '#348AA7');
                         return (
                             <MaterialCommunityIcons
                                 name="menu"

@@ -12,8 +12,8 @@ import React, { useState } from 'react';
 const Detail = () => {
     const [scrollY] = useState(new Animated.Value(0));
     const headerHeight = scrollY.interpolate({
-        inputRange: [0, 400], // adjust 400 to your desired height
-        outputRange: [400, 100], // adjust 100 to your desired collapsed height
+        inputRange: [0, 400],
+        outputRange: [400, 100],
         extrapolate: 'clamp',
     });
 
@@ -59,7 +59,6 @@ const Detail = () => {
                     right: 0,
                     height: headerHeight,
                     zIndex: -10,
-                    // You can apply other styles like background image, etc. here
                 }}>
                 <ImageBackground
                     source={require('../assets/detail1.png')}
