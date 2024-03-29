@@ -1,0 +1,96 @@
+.wrapper {
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   height: 100%;
+   flex: 1;
+   background-color: #fff;
+}
+
+.image {
+   flex: 45;
+   display: flex;
+   width: 100%;
+   object-fit: fill;
+   background-color: #000;
+
+}
+
+.contentWrapper {
+   flex: 45;
+   display: flex;
+   padding-top: 1.4rem;
+   gap: 5px;
+}
+
+.header {
+   color: #0A8754;
+   text-align: center;
+   font-family: Inter;
+   font-size: 1.6rem;
+   font-weight: 400;
+}
+
+.text {
+   width: 14rem;
+   color: #141D45;
+   text-align: center;
+   font-family: Inter;
+   font-size: 1rem;
+   font-weight: 300;
+   line-height: 22px;
+}
+
+.bottomNavigationWrapper {
+   flex: 10;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   gap: 43px;
+}
+
+.pager {
+   position: absolute;
+   bottom: 15%;
+   left: 42.5%;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   gap: 0.6rem;
+   width: fit-content;
+   height: 0.8rem;
+   flex-shrink: 0;
+}
+
+.circle {
+   width: 0.8rem;
+   height: 0.8rem;
+   border-radius: 50px;
+   color: #EAECF3;
+   background-color: #EAECF3;
+}
+
+.activeCircle {
+   color: #B5B0B5;
+   background-color: #B5B0B5;
+}
+
+.button {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 265px;
+   height: 36px;
+   flex-shrink: 0;
+   border-radius: 24px;
+   background-color: #64B48E;
+}
+
+.buttonText {
+   color: #FFF;
+   text-align: center;
+   font-family: Inter;
+   font-size: 18px;
+   font-weight: 400;
+}
