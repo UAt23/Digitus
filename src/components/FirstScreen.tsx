@@ -3,7 +3,7 @@ import { Image, Pressable, Text, View } from 'react-native';
 import styles from './Screen.scss';
 import { SCREEN_CONTENT } from '../constants/onboarding.model';
 
-function FirstScreen() {
+function FirstScreen({ setActiveTab }: { setActiveTab: any }) {
     return (
         <View style={styles.wrapper}>
             <Image
@@ -20,7 +20,9 @@ function FirstScreen() {
                 </Text>
             </View>
             <View style={styles.bottomNavigationWrapper}>
-                <Pressable style={styles.button}>
+                <Pressable
+                    style={styles.button}
+                    onPress={() => setActiveTab(1)}>
                     <Text style={styles.buttonText}>
                         {SCREEN_CONTENT.firstScreen.buttonText}
                     </Text>

@@ -3,16 +3,16 @@ import styles from './Onboarding.scss';
 import { Image, View } from 'react-native';
 import Swiper from '../../components/Swiper';
 
-function Onboarding() {
+function Onboarding({ setState }: { setState: any }) {
+    function setAppState(choice: boolean) {
+        setState(choice);
+    }
     return (
         <View style={styles.container}>
             <View style={styles.logo}>
-                <Image
-                    // eslint-disable-next-line react-native/no-inline-styles
-                    source={require('./digitus.png')}
-                />
+                <Image source={require('../../assets/images/digitus.png')} />
             </View>
-            <Swiper />
+            <Swiper setAppState={setAppState} />
         </View>
     );
 }

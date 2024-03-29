@@ -3,7 +3,10 @@ import { Image, Pressable, Text, View } from 'react-native';
 import styles from './Screen.scss';
 import { SCREEN_CONTENT } from '../constants/onboarding.model';
 
-function ThirdScreen() {
+function ThirdScreen({ setAppState }: { setAppState: any }) {
+    function enterTheApp(choice: boolean) {
+        setAppState(choice);
+    }
     return (
         <View style={styles.wrapper}>
             <Image
@@ -20,7 +23,9 @@ function ThirdScreen() {
                 </Text>
             </View>
             <View style={styles.bottomNavigationWrapper}>
-                <Pressable style={styles.button}>
+                <Pressable
+                    style={styles.button}
+                    onPress={() => enterTheApp(true)}>
                     <Text style={styles.buttonText}>
                         {SCREEN_CONTENT.thirdScreen.buttonText}
                     </Text>

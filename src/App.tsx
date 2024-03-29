@@ -7,25 +7,14 @@ import Menu from './pages/Home/Menu';
 
 // const Stack = createNativeStackNavigator();
 function App(): React.JSX.Element {
-    const { isEntered, setEntered } = useState(false);
-    if (isEntered) {
-        return (
-            // <NavigationContainer>
-            //     <Stack.Navigator initialRouteName="Onboarding">
-            //         <Stack.Screen
-            //             name="Onboarding"
-            //             component={Onboarding}
-            //             options={{ headerShown: false }}
-            //         />
-            //         <Stack.Screen
-            //             name="Home"
-            //             component={Menu}
-            //             options={{ headerShown: false }}
-            //         />
-            //     </Stack.Navigator>
-            // </NavigationContainer>
-            <Onboarding />
-        );
+    const [isEntered, setEntered] = useState(false);
+
+    function setAppState(choice: boolean) {
+        setEntered(choice);
+    }
+
+    if (!isEntered) {
+        return <Onboarding setState={setAppState} />;
     } else {
         return (
             <NavigationContainer>

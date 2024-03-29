@@ -3,7 +3,7 @@ import { Image, Pressable, Text, View } from 'react-native';
 import styles from './Screen.scss';
 import { SCREEN_CONTENT } from '../constants/onboarding.model';
 
-function SecondScreen() {
+function SecondScreen({ setActiveTab }: { setActiveTab: any }) {
     return (
         <View style={styles.wrapper}>
             <Image
@@ -20,7 +20,9 @@ function SecondScreen() {
                 </Text>
             </View>
             <View style={styles.bottomNavigationWrapper}>
-                <Pressable style={styles.button}>
+                <Pressable
+                    style={styles.button}
+                    onPress={() => setActiveTab(2)}>
                     <Text style={styles.buttonText}>
                         {SCREEN_CONTENT.secondScreen.buttonText}
                     </Text>

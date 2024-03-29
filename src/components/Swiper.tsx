@@ -6,13 +6,7 @@ import SecondScreen from './SecondScreen';
 import ThirdScreen from './ThirdScreen';
 import styles from './Screen.scss';
 
-const renderScene = SceneMap({
-    first: FirstScreen,
-    second: SecondScreen,
-    third: ThirdScreen,
-});
-
-function Swiper() {
+function Swiper({ setAppState }: { setAppState: any }) {
     const layout = useWindowDimensions();
 
     const [index, setIndex] = React.useState(0);
@@ -21,12 +15,33 @@ function Swiper() {
         { key: 'second', title: 'Second' },
         { key: 'third', title: 'Third' },
     ]);
+
+    const renderScene = SceneMap({
+        first: () => {
+            return <FirstScreen setActiveTab={setActiveTab} />;
+        },
+        second: () => {
+            return <SecondScreen setActiveTab={setActiveTab} />;
+        },
+        third: () => {
+            return <ThirdScreen setAppState={setEnterState} />;
+        },
+    });
+
+    function setActiveTab(index: number) {
+        setIndex(index);
+    }
+
+    function setEnterState(choice: boolean) {
+        setAppState(choice);
+    }
+
     return (
         <>
             <TabView
                 navigationState={{ index, routes }}
                 renderScene={renderScene}
-                onIndexChange={setIndex}
+                onIndexChange={setActiveTab}
                 // pagerStyle={{ display: 'none' }}
                 renderTabBar={props => (
                     <TabBar {...props} style={{ display: 'none' }} />
