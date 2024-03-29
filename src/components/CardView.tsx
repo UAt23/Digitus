@@ -101,8 +101,6 @@ export default CardView;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // marginTop: 8,
-        // backgroundColor: 'red',
     },
     cardStyle: {
         flex: 1,
@@ -115,7 +113,6 @@ const styles = StyleSheet.create({
         shadowRadius: 2,
         elevation: 5,
         margin: 20,
-        // height: 400
     },
     imageStyle: {
         width: '100%',

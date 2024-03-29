@@ -98,8 +98,8 @@ const styles = StyleSheet.create({
     outerCircle: {
         borderRadius: 100,
         borderWidth: 1,
-        borderColor: '#2A9D8F', // Border rengini ihtiyaçlarınıza göre değiştirin
-        padding: 3, // Resim ile border radius arasındaki boşluğu ayarlar
+        borderColor: '#2A9D8F',
+        padding: 3,
         alignItems: 'center',
         justifyContent: 'center',
     },
