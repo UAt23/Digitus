@@ -36,7 +36,7 @@ const CardView = ({
                 data={posts}
                 horizontal={false}
                 renderItem={({ item, index }) => (
-                    <TouchableWithoutFeedback>
+                    <TouchableWithoutFeedback onPress={() => onPressTitle(index)}>
                         <View style={styles.cardStyle}>
                             <Image
                                 style={styles.imageStyle}
