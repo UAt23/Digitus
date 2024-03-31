@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Screen from '../../components/Screen';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import HomeRouter from './HomeRouter';
+import { Text } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -82,11 +83,14 @@ function Menu() {
                     tabBarIcon: ({ focused, color }) => {
                         focused ? (color = '#fff') : (color = '#348AA7');
                         return (
-                            <MaterialCommunityIcons
-                                name="bell"
-                                color={color}
-                                size={26}
-                            />
+                            <>
+                                <MaterialCommunityIcons
+                                    name="bell"
+                                    color={color}
+                                    size={26}
+                                />
+                                <Text>3</Text>
+                            </>
                         );
                     },
                 }}

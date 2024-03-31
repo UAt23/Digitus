@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 // import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Onboarding from './pages/Onboarding/Onboarding';
 import Menu from './pages/Home/Menu';
+import AppContextProvider from './context/AppContextProvider';
 
 // const Stack = createNativeStackNavigator();
 function App(): React.JSX.Element {
@@ -17,9 +18,11 @@ function App(): React.JSX.Element {
         return <Onboarding setState={setAppState} />;
     } else {
         return (
-            <NavigationContainer>
-                <Menu />
-            </NavigationContainer>
+            <AppContextProvider>
+                <NavigationContainer>
+                    <Menu />
+                </NavigationContainer>
+            </AppContextProvider>
         );
     }
 }

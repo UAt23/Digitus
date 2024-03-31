@@ -9,23 +9,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
-const cardData = [
-    {
-        id: '1',
-        title: 'Enim ad minim',
-        image: require('../assets/home1.png'),
-        date: '21.05.2020',
-        likes: '1058',
-    },
-    {
-        id: '2',
-        title: 'Enim ad minim',
-        image: require('../assets/home2.png'),
-        date: '21.05.2024',
-        likes: '1348',
-    },
-];
+import { useAppContext } from '../context/AppContextProvider';
 
 const CardView = ({
     navigation,
@@ -34,10 +18,12 @@ const CardView = ({
     navigation: any;
     oneTitle: any;
 }) => {
-    const onPressTitle = () => {
+    const { posts } = useAppContext();
+    const onPressTitle = (index: number) => {
         try {
             navigation.navigate('Detail', {
                 subject: oneTitle,
+                index
             });
         } catch (error) {
             console.log('error', error);
@@ -46,28 +32,29 @@ const CardView = ({
     return (
         <View style={styles.container}>
             <FlatList
-                // scrollEnabled={true}
                 indicatorStyle="black"
-                data={cardData}
+                data={posts}
                 horizontal={false}
-                renderItem={({ item }) => (
-                    <TouchableWithoutFeedback onPress={onPressTitle}>
+                renderItem={({ item, index }) => (
+                    <TouchableWithoutFeedback>
                         <View style={styles.cardStyle}>
                             <Image
                                 style={styles.imageStyle}
-                                source={item.image}
+                                source={{
+                                    uri: item.imageurl + `?${index}`,
+                                }}
                                 resizeMode="cover"
                             />
                             <Text style={styles.textTitleStyle}>
                                 {' '}
-                                {item.title}{' '}
+                                {item.content}{' '}
                             </Text>
                             <View style={styles.row}>
                                 <TouchableOpacity
-                                    onPress={onPressTitle}
+                                    onPress={() => onPressTitle(index)}
                                     style={styles.button}>
                                     <Text style={styles.subtitle}>
-                                        Duis aute
+                                        Read
                                     </Text>
                                 </TouchableOpacity>
                                 <Text style={styles.date}>
@@ -76,7 +63,7 @@ const CardView = ({
                                         color="gray"
                                         size={14}
                                     />
-                                    {item.date}
+                                    {item.created_at}
                                 </Text>
                                 <Text style={styles.likes}>
                                     {' '}

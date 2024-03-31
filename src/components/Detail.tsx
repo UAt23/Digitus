@@ -9,14 +9,14 @@ import {
 } from 'react-native';
 import React, { useState } from 'react';
 
-const Detail = () => {
+const Detail = ({route}: {route: any}) => {
+    const { index } = route.params;
     const [scrollY] = useState(new Animated.Value(0));
     const headerHeight = scrollY.interpolate({
         inputRange: [0, 400],
         outputRange: [400, 100],
         extrapolate: 'clamp',
     });
-
     return (
         <View style={{ flex: 1 }}>
             <ScrollView
@@ -52,16 +52,11 @@ const Detail = () => {
             </ScrollView>
 
             <Animated.View
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: headerHeight,
-                    zIndex: -10,
-                }}>
+                style={[styles.animatedView, { height: headerHeight }]}>
                 <ImageBackground
-                    source={require('../assets/detail1.png')}
+                    source={{
+                        uri: 'https://source.unsplash.com/random/200x300?' + index
+                    }}
                     style={styles.imageStyle}></ImageBackground>
             </Animated.View>
         </View>
@@ -106,5 +101,12 @@ const styles = StyleSheet.create({
         fontSize: 13,
         lineHeight: 20,
         fontWeight: '400',
+    },
+    animatedView: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: -10,
     },
 });
